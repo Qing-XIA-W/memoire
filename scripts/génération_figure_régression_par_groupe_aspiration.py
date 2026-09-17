@@ -1,5 +1,5 @@
 """
-SCRIPT PYTHON : RÉGRESSION LINÉAIRE GROUPÉE PAR TYPE D'ASPIRATION
+RÉGRESSION LINÉAIRE GROUPÉE PAR TYPE D'ASPIRATION
 ==============================================================================
 
 Description :

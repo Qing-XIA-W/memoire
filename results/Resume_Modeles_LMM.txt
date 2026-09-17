@@ -1,0 +1,279 @@
+================================================================================
+   RÉSUMÉ DES RÉSULTATS D'ANALYSE STATISTIQUE PAR MODÈLES LMM (9 MODÈLES)
+================================================================================
+Nombre total d'observations dans le jeu de données : 1613
+Nombre total de locuteurs (Locuteur) : 8
+--------------------------------------------------------------------------------
+Niveaux de référence (Baseline) appliqués :
+  - Position            : 'initial'
+  - Aspiration          : 'Aspiré'
+  - Lieu d'articulation : 'dental'
+================================================================================
+
+
+================================================================================
+ Ajustement du modèle : Modèle 1 (Effets principaux & Interactions d'ordre 2 - Log_Durée)
+ Formule syntaxique : Log_Duree ~ (Position + Aspiration + Lieu_articulation)**2
+================================================================================
+ Effectif valide : 1613
+                               Mixed Linear Model Regression Results
+===================================================================================================
+Model:                            MixedLM               Dependent Variable:               Log_Duree
+No. Observations:                 1613                  Method:                           REML     
+No. Groups:                       8                     Scale:                            0.0547   
+Min. group size:                  3                     Log-Likelihood:                   18.9854  
+Max. group size:                  606                   Converged:                        Yes      
+Mean group size:                  201.6                                                            
+---------------------------------------------------------------------------------------------------
+                                                        Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------------------------------------------------
+Intercept                                                5.098    0.043 119.089 0.000  5.014  5.182
+Position[T.intervocalique]                              -0.261    0.023 -11.227 0.000 -0.307 -0.216
+Aspiration[T.Non-aspiré]                                -0.624    0.022 -27.872 0.000 -0.668 -0.580
+Lieu_articulation[T.labial]                             -0.055    0.030  -1.827 0.068 -0.114  0.004
+Lieu_articulation[T.vélaire]                             0.041    0.026   1.548 0.122 -0.011  0.093
+Position[T.intervocalique]:Aspiration[T.Non-aspiré]      0.096    0.025   3.859 0.000  0.047  0.145
+Position[T.intervocalique]:Lieu_articulation[T.labial]   0.152    0.028   5.343 0.000  0.096  0.208
+Position[T.intervocalique]:Lieu_articulation[T.vélaire]  0.053    0.029   1.832 0.067 -0.004  0.110
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.labial]     0.088    0.032   2.793 0.005  0.026  0.150
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.vélaire]    0.120    0.029   4.104 0.000  0.063  0.177
+Group Var                                                0.010    0.026                            
+===================================================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 2 (Effets principaux & Interactions d'ordre 2 - Log_VOT)
+ Formule syntaxique : Log_VOT ~ (Position + Aspiration + Lieu_articulation)**2
+================================================================================
+ Effectif valide (après suppression des NA VOT) : 1596 / 1613
+                               Mixed Linear Model Regression Results
+===================================================================================================
+Model:                            MixedLM               Dependent Variable:               Log_VOT  
+No. Observations:                 1596                  Method:                           REML     
+No. Groups:                       8                     Scale:                            0.1059   
+Min. group size:                  3                     Log-Likelihood:                   -506.5877
+Max. group size:                  592                   Converged:                        Yes      
+Mean group size:                  199.5                                                            
+---------------------------------------------------------------------------------------------------
+                                                        Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+---------------------------------------------------------------------------------------------------
+Intercept                                                4.587    0.069  66.731 0.000  4.453  4.722
+Position[T.intervocalique]                              -0.071    0.032  -2.173 0.030 -0.134 -0.007
+Aspiration[T.Non-aspiré]                                -1.408    0.031 -45.130 0.000 -1.469 -1.347
+Lieu_articulation[T.labial]                              0.079    0.042   1.883 0.060 -0.003  0.162
+Lieu_articulation[T.vélaire]                             0.062    0.037   1.682 0.093 -0.010  0.134
+Position[T.intervocalique]:Aspiration[T.Non-aspiré]      0.087    0.035   2.499 0.012  0.019  0.156
+Position[T.intervocalique]:Lieu_articulation[T.labial]  -0.155    0.040  -3.898 0.000 -0.233 -0.077
+Position[T.intervocalique]:Lieu_articulation[T.vélaire]  0.010    0.040   0.255 0.799 -0.069  0.089
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.labial]    -0.118    0.044  -2.676 0.007 -0.205 -0.032
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.vélaire]    0.408    0.041   9.996 0.000  0.328  0.488
+Group Var                                                0.029    0.051                            
+===================================================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 3 (Effets principaux & Interactions d'ordre 2 - Logit_Voisement)
+ Formule syntaxique : Logit_Voisement ~ (Position + Aspiration + Lieu_articulation)**2
+================================================================================
+ Effectif valide : 1613
+                              Mixed Linear Model Regression Results
+==================================================================================================
+Model:                         MixedLM             Dependent Variable:             Logit_Voisement
+No. Observations:              1613                Method:                         REML           
+No. Groups:                    8                   Scale:                          9.6162         
+Min. group size:               3                   Log-Likelihood:                 -4124.5912     
+Max. group size:               606                 Converged:                      Yes            
+Mean group size:               201.6                                                              
+--------------------------------------------------------------------------------------------------
+                                                        Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+--------------------------------------------------------------------------------------------------
+Intercept                                               -4.945    0.611 -8.094 0.000 -6.143 -3.748
+Position[T.intervocalique]                               3.483    0.309 11.279 0.000  2.878  4.089
+Aspiration[T.Non-aspiré]                                -0.128    0.297 -0.430 0.667 -0.709  0.454
+Lieu_articulation[T.labial]                              0.589    0.401  1.469 0.142 -0.197  1.375
+Lieu_articulation[T.vélaire]                             1.283    0.351  3.660 0.000  0.596  1.970
+Position[T.intervocalique]:Aspiration[T.Non-aspiré]      2.357    0.331  7.117 0.000  1.708  3.006
+Position[T.intervocalique]:Lieu_articulation[T.labial]  -0.891    0.377 -2.364 0.018 -1.630 -0.152
+Position[T.intervocalique]:Lieu_articulation[T.vélaire] -1.522    0.384 -3.967 0.000 -2.274 -0.770
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.labial]     0.023    0.418  0.054 0.957 -0.797  0.842
+Aspiration[T.Non-aspiré]:Lieu_articulation[T.vélaire]   -0.855    0.388 -2.203 0.028 -1.615 -0.094
+Group Var                                                2.192    0.433                           
+==================================================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 4 (Relation Durée-VOT de base)
+ Formule syntaxique : Log_VOT ~ Duree_ms
+================================================================================
+ Effectif valide (après suppression des NA VOT) : 1596 / 1613
+         Mixed Linear Model Regression Results
+=======================================================
+Model:            MixedLM Dependent Variable: Log_VOT  
+No. Observations: 1596    Method:             REML     
+No. Groups:       8       Scale:              0.1743   
+Min. group size:  3       Log-Likelihood:     -882.4417
+Max. group size:  592     Converged:          Yes      
+Mean group size:  199.5                                
+-------------------------------------------------------
+              Coef. Std.Err.   z    P>|z| [0.025 0.975]
+-------------------------------------------------------
+Intercept     1.932    0.035 54.429 0.000  1.862  2.001
+Duree_ms      0.016    0.000 58.079 0.000  0.015  0.016
+Group Var     0.001    0.003                           
+=======================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 5 (Relation Durée-VOT * Position)
+ Formule syntaxique : Log_VOT ~ Duree_ms * Position
+================================================================================
+ Effectif valide (après suppression des NA VOT) : 1596 / 1613
+                    Mixed Linear Model Regression Results
+==============================================================================
+Model:                     MixedLM        Dependent Variable:        Log_VOT  
+No. Observations:          1596           Method:                    REML     
+No. Groups:                8              Scale:                     0.1699   
+Min. group size:           3              Log-Likelihood:            -870.9788
+Max. group size:           592            Converged:                 Yes      
+Mean group size:           199.5                                              
+------------------------------------------------------------------------------
+                                    Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+------------------------------------------------------------------------------
+Intercept                            1.755    0.050 35.455 0.000  1.658  1.853
+Position[T.intervocalique]           0.269    0.064  4.180 0.000  0.143  0.395
+Duree_ms                             0.017    0.000 45.711 0.000  0.016  0.017
+Duree_ms:Position[T.intervocalique] -0.001    0.001 -2.234 0.026 -0.002 -0.000
+Group Var                            0.001    0.003                           
+==============================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 6 (Relation Durée-VOT * Aspiration)
+ Formule syntaxique : Log_VOT ~ Duree_ms * Aspiration
+================================================================================
+ Effectif valide (après suppression des NA VOT) : 1596 / 1613
+                    Mixed Linear Model Regression Results
+=============================================================================
+Model:                    MixedLM        Dependent Variable:        Log_VOT  
+No. Observations:         1596           Method:                    REML     
+No. Groups:               8              Scale:                     0.0990   
+Min. group size:          3              Log-Likelihood:            -445.3309
+Max. group size:          592            Converged:                 Yes      
+Mean group size:          199.5                                              
+-----------------------------------------------------------------------------
+                                  Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-----------------------------------------------------------------------------
+Intercept                          3.694    0.071  51.861 0.000  3.554  3.833
+Aspiration[T.Non-aspiré]          -1.478    0.070 -21.207 0.000 -1.614 -1.341
+Duree_ms                           0.006    0.000  14.741 0.000  0.005  0.006
+Duree_ms:Aspiration[T.Non-aspiré]  0.006    0.001   9.894 0.000  0.005  0.007
+Group Var                          0.009    0.018                            
+=============================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 7 (Relation Durée-Voisement de base)
+ Formule syntaxique : Logit_Voisement ~ Duree_ms
+================================================================================
+ Effectif valide : 1613
+            Mixed Linear Model Regression Results
+=============================================================
+Model:            MixedLM Dependent Variable: Logit_Voisement
+No. Observations: 1613    Method:             REML           
+No. Groups:       8       Scale:              13.0400        
+Min. group size:  3       Log-Likelihood:     -4374.2981     
+Max. group size:  606     Converged:          Yes            
+Mean group size:  201.6                                      
+--------------------------------------------------------------
+              Coef.   Std.Err.     z     P>|z|  [0.025  0.975]
+--------------------------------------------------------------
+Intercept      0.816     0.623    1.309  0.190  -0.405   2.036
+Duree_ms      -0.033     0.002  -13.943  0.000  -0.037  -0.028
+Group Var      2.030     0.338                                
+=============================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 8 (Relation Durée-Voisement * Position)
+ Formule syntaxique : Logit_Voisement ~ Duree_ms * Position
+================================================================================
+ Effectif valide : 1613
+                     Mixed Linear Model Regression Results
+===============================================================================
+Model:                  MixedLM       Dependent Variable:       Logit_Voisement
+No. Observations:       1613          Method:                   REML           
+No. Groups:             8             Scale:                    8.5464         
+Min. group size:        3             Log-Likelihood:           -4038.7079     
+Max. group size:        606           Converged:                Yes            
+Mean group size:        201.6                                                  
+-------------------------------------------------------------------------------
+                                    Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+-------------------------------------------------------------------------------
+Intercept                           -5.070    0.575  -8.825 0.000 -6.196 -3.944
+Position[T.intervocalique]           9.942    0.452  21.999 0.000  9.056 10.828
+Duree_ms                             0.003    0.003   1.130 0.258 -0.002  0.008
+Duree_ms:Position[T.intervocalique] -0.054    0.004 -14.032 0.000 -0.061 -0.046
+Group Var                            1.409    0.310                            
+===============================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle : Modèle 9 (Relation Durée-Voisement * Aspiration)
+ Formule syntaxique : Logit_Voisement ~ Duree_ms * Aspiration
+================================================================================
+ Effectif valide : 1613
+                   Mixed Linear Model Regression Results
+============================================================================
+Model:                 MixedLM      Dependent Variable:      Logit_Voisement
+No. Observations:      1613         Method:                  REML           
+No. Groups:            8            Scale:                   12.0798        
+Min. group size:       3            Log-Likelihood:          -4315.5616     
+Max. group size:       606          Converged:               Yes            
+Mean group size:       201.6                                                
+----------------------------------------------------------------------------
+                                  Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------------
+Intercept                         -0.092    0.819 -0.113 0.910 -1.697  1.512
+Aspiration[T.Non-aspiré]           5.262    0.754  6.976 0.000  3.784  6.741
+Duree_ms                          -0.023    0.004 -5.490 0.000 -0.032 -0.015
+Duree_ms:Aspiration[T.Non-aspiré] -0.061    0.006 -9.828 0.000 -0.073 -0.049
+Group Var                          1.479    0.262                           
+============================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+

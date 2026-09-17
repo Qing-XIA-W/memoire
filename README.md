@@ -233,3 +233,7 @@ Ce dépôt est associé au mémoire de Master 2 :
 
 Université d’Orléans
 Master Sciences du langage — Parcours Analyse et Traitements Linguistiques (ATL)
+
+## 10. Note sur le développement du code
+
+Ce projet a bénéficié de l’assistance de l’outil d’IA Gemini pour l’optimisation de certains scripts de traitement acoustique et d’analyse statistique. La logique algorithmique, le contrôle de la qualité des données et la validation des modèles ont été assurés par l’auteur.

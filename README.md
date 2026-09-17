@@ -1,33 +1,10 @@
 # Affaiblissement phonétique des occlusives en mandarin
 
-Ce dépôt contient les scripts, données intermédiaires, résultats et ressources numériques utilisés dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), à l’Université d’Orléans.
+Ce dépôt contient les scripts, les données intermédiaires, les résultats et les ressources numériques utilisés dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), à l’Université d’Orléans.
 
 Le mémoire porte sur la variation phonétique des occlusives du mandarin standard dans la parole continue, avec une attention particulière portée aux manifestations acoustiques de l’affaiblissement phonétique.
 
-## 1. Données
-
-Les données étudiées proviennent du corpus participatif **Lingua Libre** et concernent des productions en mandarin.
-
-Le sous-corpus initial comprend des productions de plusieurs locuteurs. Après sélection, nettoyage et vérification des données, le sous-corpus utilisé pour les analyses statistiques comprend **1 613 occurrences d’occlusives produites par 8 locuteurs**.
-
-Les six occlusives étudiées sont :
-
-* /p/
-* /pʰ/
-* /t/
-* /tʰ/
-* /k/
-* /kʰ/
-
-Les analyses acoustiques portent principalement sur trois paramètres :
-
-* la durée totale de l’occlusive ;
-* le Voice Onset Time (VOT) ;
-* le taux de voisement.
-
-Les fichiers audio originaux ne sont pas inclus dans ce dépôt. Ils proviennent de Lingua Libre et les informations permettant d’identifier les données utilisées sont conservées dans les fichiers de métadonnées et de sélection du sous-corpus.
-
-## 2. Organisation du dépôt
+## 1. Organisation du dépôt
 
 ```text
 memoire/
@@ -43,7 +20,7 @@ memoire/
 ├── scripts/
 │   ├── ajustement_modeles_lmm_consonnes.py
 │   ├── ajustement_modeles_lmm_sociolinguistiques.py
-│   ├── extraction/
+│   ├── extraction_automatisée_des_paramètres_consonnes.py
 │   ├── génération_3_figures_descriptives.py
 │   ├── génération_figure_régression_par_groupe_aspiration.py
 │   ├── génération_figure_régression_vot_durée_et_proportion.py
@@ -51,41 +28,89 @@ memoire/
 │   └── .praat
 │
 ├── results/
-│   ├── LMM/
-│   │    ├── Resume_Modeles_LMM.txt
-│   │    └── Resume_Modeles_socio_LMM.txt
-│   └── figures/
+    ├── LMM/
+    │   ├── Resume_Modeles_LMM.txt
+    │   └── Resume_Modeles_socio_LMM.txt
+    │
+    └── figures/
 ```
+
+## 2. Données
+
+Le dossier `data/` contient les principaux fichiers de données utilisés au cours de la constitution du sous-corpus et des analyses.
+
+### `corpus_consonants_extraction.csv`
+
+Ce fichier contient les résultats de l’extraction automatique des paramètres acoustiques à partir du corpus traité.
+
+Il comprend au total **10 847 occurrences**.
+
+Les principales informations acoustiques utilisées dans l’étude comprennent notamment la durée de la consonne, le VOT et le taux de voisement.
+
+À ce stade du traitement, les valeurs de VOT n’ont pas fait l’objet d’une vérification manuelle systématique.
+
+### `Souscorpus.csv`
+
+Ce fichier correspond au sous-corpus finalement retenu pour les analyses statistiques.
+
+Il a été constitué à partir du fichier `corpus_consonants_extraction.csv` après sélection et nettoyage des occurrences. Il contient **1 613 occurrences**.
+
+Les valeurs de VOT présentes dans ce fichier ont fait l’objet d’une **vérification manuelle** afin de contrôler l’identification du relâchement de l’occlusive et du début du voisement.
+
+Ce fichier constitue donc la principale table de données utilisée pour les analyses statistiques présentées dans le mémoire.
+
+### `Metadata.xlsx`
+
+Ce fichier de métadonnées a été constitué manuellement à partir des informations disponibles pour les locuteurs.
+
+Il contient notamment les variables suivantes :
+
+* `ID locuteur`
+* `Genre`
+* `Lieu de résidence`
+* `Nb d'audios`
+* `Langue maternelle`
+* `Autre Langue (Niveau)`
+
+Ces informations permettent de documenter les caractéristiques générales des locuteurs du corpus et d’examiner certaines dimensions sociophonétiques.
+
+### `metapp.xlsx`
+
+Ce fichier constitue une version simplifiée des métadonnées, préparée spécifiquement pour être intégrée au fichier `corpus_consonants_extraction.csv`.
+
+Il contient uniquement les trois premières informations nécessaires à cette opération :
+
+* `ID locuteur`
+* `Genre`
+* `Lieu de résidence`
+
+Il s’agit donc d’un fichier intermédiaire destiné principalement à la préparation des données pour les analyses.
 
 ## 3. Scripts
 
-Les scripts sont organisés selon les différentes étapes du traitement des données.
+Le dossier `scripts/` contient les scripts utilisés pour les différentes étapes du traitement et de l’analyse des données.
 
-### `scripts/metadata/`
+### Extraction des paramètres acoustiques
 
-Scripts utilisés pour extraire et organiser les informations associées aux enregistrements et aux locuteurs.
+`extraction_automatisée_des_paramètres_consonnes.py`
 
-### `scripts/textgrid/`
+Ce script est utilisé pour l’extraction automatisée des principaux paramètres acoustiques des consonnes à partir des fichiers audio et des annotations.
 
-Scripts Praat et Python utilisés pour la lecture, la vérification et le traitement des fichiers TextGrid.
+Il permet notamment de produire les données acoustiques regroupées dans `corpus_consonants_extraction.csv`.
 
-Ils comprennent notamment les scripts permettant de traiter plusieurs fichiers TextGrid de manière automatisée.
+### Traitement des fichiers Praat / TextGrid
 
-### `scripts/extraction/`
+`.praat`
 
-Scripts utilisés pour l’extraction des mesures acoustiques à partir des fichiers audio et des annotations.
+Ce script Praat est utilisé pour le traitement et la lecture de plusieurs fichiers TextGrid dans le cadre de la vérification et du traitement des annotations.
 
-Les principales mesures extraites sont la durée de l’occlusive, le VOT et le taux de voisement.
+### Analyses statistiques
 
-### `scripts/cleaning/`
+`ajustement_modeles_lmm_consonnes.py`
 
-Scripts utilisés pour le nettoyage et la préparation des données avant les analyses statistiques.
+Ce script réalise les modèles linéaires à effets mixtes utilisés pour analyser les paramètres acoustiques des occlusives en fonction des variables phonétiques retenues dans l’étude.
 
-### `scripts/statistics/`
-
-Scripts Python utilisés pour les analyses statistiques, notamment les **modèles linéaires à effets mixtes (LMM)**.
-
-Les modèles prennent notamment en compte :
+Les analyses prennent notamment en compte :
 
 * la position de la consonne ;
 * le statut d’aspiration ;
@@ -93,43 +118,78 @@ Les modèles prennent notamment en compte :
 * les interactions entre ces facteurs ;
 * le locuteur comme effet aléatoire.
 
-Des analyses complémentaires portent également sur certaines caractéristiques sociophonétiques des locuteurs.
+`ajustement_modeles_lmm_sociolinguistiques.py`
 
-### `scripts/figures/`
+Ce script réalise les modèles linéaires à effets mixtes utilisés pour examiner les associations entre les paramètres acoustiques et certaines caractéristiques sociophonétiques des locuteurs, notamment le genre et le lieu de résidence déclaré.
 
-Scripts utilisés pour produire les figures présentées dans le mémoire à partir des données analysées.
+### Production des figures
 
-## 4. Données intermédiaires et données analysées
+Les scripts suivants sont utilisés pour produire les figures et visualisations présentées dans le mémoire :
 
-Le dossier `data/subcorpus/` contient les fichiers utilisés pour définir le sous-corpus retenu pour l’analyse.
+* `génération_3_figures_descriptives.py`
+* `génération_figure_régression_par_groupe_aspiration.py`
+* `génération_figure_régression_vot_durée_et_proportion.py`
+* `génération_grille_régression_par_consonne.py`
 
-Le dossier `data/extracted/` contient les données acoustiques extraites et préparées pour les analyses statistiques.
+Ces scripts permettent de produire différentes représentations descriptives et graphiques des relations entre les paramètres acoustiques étudiés.
 
-Ces fichiers permettent de suivre les principales étapes de transformation des données, depuis la sélection du sous-corpus jusqu’aux analyses statistiques.
+Les figures présentes dans `results/figures/` correspondent aux figures retenues pour la présentation des résultats dans le mémoire. Toutes les sorties graphiques produites au cours de l’exploration des données ne sont pas nécessairement incluses dans ce dossier.
 
-## 5. Résultats
+## 4. Résultats
 
-Le dossier `results/` contient les résultats produits à partir des scripts d’analyse.
-
-### `results/descriptive/`
-
-Statistiques descriptives utilisées pour caractériser les données selon les différentes conditions phonétiques.
-
-### `results/LMM/`
-
-Résultats des modèles linéaires à effets mixtes utilisés dans le mémoire.
+Le dossier `results/` contient les principaux résultats utilisés dans le mémoire.
 
 ### `results/figures/`
 
-Figures produites à partir des scripts du dossier `scripts/figures/`.
+Ce dossier contient les principales figures utilisées dans le mémoire.
 
-Les figures peuvent ainsi être reproduites à partir des données correspondantes et des scripts fournis dans le dépôt.
+Il ne contient pas nécessairement l’ensemble des graphiques produits au cours de l’exploration et de l’analyse des données. Les scripts de génération des figures sont toutefois fournis dans le dossier `scripts/`, afin de documenter les procédures utilisées pour leur production.
 
-## 6. Annotation et correction manuelle
+### `results/LMM/`
 
-Le fichier `docs/annotation_protocol.pdf` présente les principales conventions adoptées pour la vérification et la correction manuelle des annotations.
+Ce dossier contient les résumés des modèles linéaires à effets mixtes :
 
-Le protocole précise notamment les critères utilisés pour la délimitation des segments, l’identification du relâchement des occlusives, le codage du VOT et le traitement de certaines réalisations phonétiques particulières.
+* `Resume_Modeles_LMM.txt` : résultats des modèles portant sur les caractéristiques phonétiques des occlusives ;
+* `Resume_Modeles_socio_LMM.txt` : résultats des modèles portant sur les caractéristiques sociophonétiques des locuteurs.
+
+Les scripts correspondants sont disponibles dans le dossier `scripts/`, ce qui permet de relier les résultats présentés aux procédures statistiques utilisées.
+
+## 5. Chaîne générale de traitement
+
+La constitution des données analysées et la réalisation des analyses peuvent être résumées comme suit :
+
+```text
+Corpus et métadonnées Lingua Libre
+                ↓
+       Extraction automatique
+                ↓
+corpus_consonants_extraction.csv
+       (10 847 occurrences)
+                ↓
+      Sélection et nettoyage
+                ↓
+         Souscorpus.csv
+       (1 613 occurrences)
+                ↓
+       Vérification manuelle
+             du VOT
+                ↓
+     Analyses statistiques
+                ↓
+      ┌─────────┴─────────┐
+      ↓                   ↓
+    Figures              LMM
+      ↓                   ↓
+   results/figures      results/LMM    
+```
+
+## 6. Annotation et vérification manuelle
+
+Les données ont été alignées automatiquement puis vérifiées et corrigées manuellement lorsque cela était nécessaire.
+
+Une attention particulière a été portée à l’identification des frontières segmentales et à la mesure du VOT. Les valeurs de VOT du sous-corpus final ont notamment été vérifiées manuellement afin de contrôler l’identification du relâchement de l’occlusive et du début du voisement.
+
+Les conventions d’annotation et de correction utilisées dans le cadre du mémoire sont décrites dans le protocole d’annotation associé au travail.
 
 ## 7. Outils logiciels et bibliothèques Python utilisés pour le traitement et l'analyse des données
 
@@ -153,31 +213,17 @@ Les analyses ont été réalisées à l’aide de plusieurs logiciels et bibliot
 
 ## 8. Reproductibilité
 
-Le dépôt vise à documenter les principales étapes du traitement des données et des analyses réalisées dans le cadre du mémoire.
+Ce dépôt vise à documenter les principales étapes du traitement des données et des analyses réalisées dans le cadre du mémoire.
 
-La chaîne de traitement peut être résumée comme suit :
+Les fichiers de données et les scripts permettent notamment de distinguer :
 
-```text
-Lingua Libre
-     ↓
-Sélection des données
-     ↓
-Constitution du sous-corpus
-     ↓
-Alignement automatique
-     ↓
-Correction manuelle des annotations
-     ↓
-Extraction des mesures acoustiques
-     ↓
-Nettoyage et préparation des données
-     ↓
-Analyses statistiques
-     ↓
-Production des figures et des résultats
-```
+1. les données issues de l’extraction automatique ;
+2. le sous-corpus sélectionné pour les analyses ;
+3. les mesures de VOT après vérification manuelle ;
+4. les procédures statistiques utilisées ;
+5. les scripts de production des figures.
 
-Les fichiers audio originaux et l’ensemble des fichiers TextGrid ne sont pas reproduits dans ce dépôt. Le dépôt contient principalement les scripts, les données structurées nécessaires aux analyses, les résultats et la documentation permettant de comprendre la chaîne de traitement.
+Les fichiers audio originaux et l’ensemble des fichiers TextGrid ne sont pas inclus dans ce dépôt. Les données originales proviennent de Lingua Libre.
 
 ## 9. Mémoire
 
@@ -187,7 +233,3 @@ Ce dépôt est associé au mémoire de Master 2 :
 
 Université d’Orléans
 Master Sciences du langage — Parcours Analyse et Traitements Linguistiques (ATL)
-
-
-Les conditions de réutilisation des scripts et des données sont précisées dans le fichier `LICENSE`.
-

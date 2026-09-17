@@ -1,0 +1,104 @@
+================================================================================
+   RÉSUMÉ DES RÉSULTATS LMM (EFFETS MIXTES) : MODÈLES 1 À 3
+================================================================================
+Effectif total du sous-corpus : 1613
+Locuteurs uniques (ID_Locuteur) : 8
+--------------------------------------------------------------------------------
+ Modalités de référence (Baseline / Intercept) :
+   - Genre  : 'F' (Female)
+   - Région : 'Hong Kong' (香港地区)
+   -> L'Intercept représente la valeur estimée pour une locutrice Féminine de Hong Kong.
+   -> Structure : Modèle linéaire mixte avec intercept aléatoire (1 | Locuteur).
+================================================================================
+
+
+================================================================================
+ Ajustement du modèle mixte : Modèle 1 (Log_Durée ~ Genre + Region)
+ Formule syntaxique : Log_Duree ~ Genre + Region + (1 | Locuteur)
+================================================================================
+ Effectif valide (après suppression NA Genre/Region) : 1441 / 1613
+                Mixed Linear Model Regression Results
+=====================================================================
+Model:                  MixedLM     Dependent Variable:     Log_Duree
+No. Observations:       1441        Method:                 REML     
+No. Groups:             7           Scale:                  0.1313   
+Min. group size:        3           Log-Likelihood:         -593.3982
+Max. group size:        606         Converged:              Yes      
+Mean group size:        205.9                                        
+---------------------------------------------------------------------
+                           Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+---------------------------------------------------------------------
+Intercept                   4.495    0.094 47.874 0.000  4.311  4.679
+Genre[T.M]                 -0.182    0.179 -1.019 0.308 -0.533  0.168
+Region[T.Guangdong Puning]  0.453    0.223  2.033 0.042  0.016  0.890
+Region[T.Shanghai]          0.354    0.223  1.586 0.113 -0.084  0.792
+Region[T.Taiwan]            0.263    0.176  1.497 0.134 -0.081  0.608
+Region[T.Île-de-France]     0.429    0.267  1.606 0.108 -0.095  0.952
+Group Var                   0.009    0.130                           
+=====================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle mixte : Modèle 2 (Log_VOT ~ Genre + Region)
+ Formule syntaxique : Log_VOT ~ Genre + Region + (1 | Locuteur)
+================================================================================
+ Effectif valide (après suppression NA VOT/Genre/Region) : 1424 / 1613
+                Mixed Linear Model Regression Results
+======================================================================
+Model:                  MixedLM     Dependent Variable:     Log_VOT   
+No. Observations:       1424        Method:                 REML      
+No. Groups:             7           Scale:                  0.5350    
+Min. group size:        3           Log-Likelihood:         -1582.4924
+Max. group size:        592         Converged:              Yes       
+Mean group size:        203.4                                         
+----------------------------------------------------------------------
+                           Coef.  Std.Err.    z    P>|z| [0.025 0.975]
+----------------------------------------------------------------------
+Intercept                   3.447    0.030 114.668 0.000  3.388  3.506
+Genre[T.M]                 -0.171    0.318  -0.537 0.591 -0.793  0.452
+Region[T.Guangdong Puning]  0.617    0.321   1.921 0.055 -0.013  1.246
+Region[T.Shanghai]          0.470    0.322   1.460 0.144 -0.161  1.101
+Region[T.Taiwan]            0.390    0.311   1.253 0.210 -0.220  0.999
+Region[T.Île-de-France]     0.456    0.437   1.042 0.297 -0.401  1.312
+Group Var                   0.000    0.240                            
+======================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+ Ajustement du modèle mixte : Modèle 3 (Logit_Voisement ~ Genre + Region)
+ Formule syntaxique : Logit_Voisement ~ Genre + Region + (1 | Locuteur)
+================================================================================
+ Effectif valide (après suppression NA Genre/Region) : 1441 / 1613
+                Mixed Linear Model Regression Results
+=====================================================================
+Model:                MixedLM   Dependent Variable:   Logit_Voisement
+No. Observations:     1441      Method:               REML           
+No. Groups:           7         Scale:                14.8965        
+Min. group size:      3         Log-Likelihood:       -3988.1264     
+Max. group size:      606       Converged:            Yes            
+Mean group size:      205.9                                          
+---------------------------------------------------------------------
+                           Coef.  Std.Err.   z    P>|z| [0.025 0.975]
+---------------------------------------------------------------------
+Intercept                  -0.581    0.157 -3.706 0.000 -0.888 -0.274
+Genre[T.M]                  1.931    0.728  2.652 0.008  0.504  3.359
+Region[T.Guangdong Puning] -5.680    0.769 -7.384 0.000 -7.188 -4.173
+Region[T.Shanghai]         -5.572    0.778 -7.158 0.000 -7.097 -4.046
+Region[T.Taiwan]           -2.171    0.641 -3.389 0.001 -3.427 -0.916
+Region[T.Île-de-France]    -5.484    1.743 -3.147 0.002 -8.901 -2.068
+Group Var                   0.000                                    
+=====================================================================
+
+
+
+--------------------------------------------------------------------------------
+
+

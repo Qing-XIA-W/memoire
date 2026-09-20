@@ -25,7 +25,7 @@ memoire/
 │   ├── génération_figure_régression_par_groupe_aspiration.py
 │   ├── génération_figure_régression_vot_durée_et_proportion.py
 │   ├── génération_grille_régression_par_consonne.py
-│   └── .praat
+│   └── traitement_batch_textgrid.praat
 │
 ├── results/
     ├── LMM/
@@ -100,7 +100,7 @@ Il permet notamment de produire les données acoustiques regroupées dans `corpu
 
 ### Traitement des fichiers Praat / TextGrid
 
-`.praat`
+`traitement_batch_textgrid.praat`
 
 Ce script Praat est utilisé pour le traitement et la lecture de plusieurs fichiers TextGrid dans le cadre de la vérification et du traitement des annotations.
 

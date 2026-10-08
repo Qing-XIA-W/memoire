@@ -1,7 +1,7 @@
 ================================================================================
    RÉSUMÉ DES RÉSULTATS LMM (EFFETS MIXTES) : MODÈLES 1 À 3
 ================================================================================
-Effectif total du sous-corpus : 1613
+Effectif total du sous-corpus : 1441
 Locuteurs uniques (ID_Locuteur) : 7
 --------------------------------------------------------------------------------
  Modalités de référence (Baseline / Intercept) :

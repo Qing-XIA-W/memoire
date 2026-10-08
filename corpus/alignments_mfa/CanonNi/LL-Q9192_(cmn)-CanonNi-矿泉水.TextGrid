@@ -1,0 +1,88 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 0.989333 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 0.989333 
+        intervals: size = 5 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.16 
+            text = "" 
+        intervals [2]:
+            xmin = 0.16 
+            xmax = 0.37 
+            text = "矿" 
+        intervals [3]:
+            xmin = 0.37 
+            xmax = 0.55 
+            text = "泉" 
+        intervals [4]:
+            xmin = 0.55 
+            xmax = 0.95 
+            text = "水" 
+        intervals [5]:
+            xmin = 0.95 
+            xmax = 0.989333 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 0.989333 
+        intervals: size = 12 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.16 
+            text = "" 
+        intervals [2]:
+            xmin = 0.16 
+            xmax = 0.24 
+            text = "kʰ" 
+        intervals [3]:
+            xmin = 0.24 
+            xmax = 0.27 
+            text = "w" 
+        intervals [4]:
+            xmin = 0.27 
+            xmax = 0.32 
+            text = "a˥˩" 
+        intervals [5]:
+            xmin = 0.32 
+            xmax = 0.37 
+            text = "ŋ" 
+        intervals [6]:
+            xmin = 0.37 
+            xmax = 0.44 
+            text = "tɕʷ" 
+        intervals [7]:
+            xmin = 0.44 
+            xmax = 0.48 
+            text = "e˧˥" 
+        intervals [8]:
+            xmin = 0.48 
+            xmax = 0.55 
+            text = "n" 
+        intervals [9]:
+            xmin = 0.55 
+            xmax = 0.67 
+            text = "ʂ" 
+        intervals [10]:
+            xmin = 0.67 
+            xmax = 0.72 
+            text = "w" 
+        intervals [11]:
+            xmin = 0.72 
+            xmax = 0.95 
+            text = "ej˨˩˦" 
+        intervals [12]:
+            xmin = 0.95 
+            xmax = 0.989333 
+            text = "" 

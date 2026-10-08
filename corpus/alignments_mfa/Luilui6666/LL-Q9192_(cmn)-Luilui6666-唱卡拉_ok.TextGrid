@@ -1,0 +1,92 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.565333 
+tiers? <exists> 
+size = 2 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "words" 
+        xmin = 0 
+        xmax = 1.565333 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.17 
+            text = "" 
+        intervals [2]:
+            xmin = 0.17 
+            xmax = 0.51 
+            text = "唱" 
+        intervals [3]:
+            xmin = 0.51 
+            xmax = 0.7 
+            text = "卡" 
+        intervals [4]:
+            xmin = 0.7 
+            xmax = 0.9 
+            text = "拉" 
+        intervals [5]:
+            xmin = 0.9 
+            xmax = 1.36 
+            text = "ok" 
+        intervals [6]:
+            xmin = 1.36 
+            xmax = 1.565333 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "phones" 
+        xmin = 0 
+        xmax = 1.565333 
+        intervals: size = 12 
+        intervals [1]:
+            xmin = 0.0 
+            xmax = 0.17 
+            text = "" 
+        intervals [2]:
+            xmin = 0.17 
+            xmax = 0.29 
+            text = "ʈʂʰ" 
+        intervals [3]:
+            xmin = 0.29 
+            xmax = 0.4 
+            text = "a˥˩" 
+        intervals [4]:
+            xmin = 0.4 
+            xmax = 0.51 
+            text = "ŋ" 
+        intervals [5]:
+            xmin = 0.51 
+            xmax = 0.61 
+            text = "kʰ" 
+        intervals [6]:
+            xmin = 0.61 
+            xmax = 0.7 
+            text = "a˨˩˦" 
+        intervals [7]:
+            xmin = 0.7 
+            xmax = 0.77 
+            text = "l" 
+        intervals [8]:
+            xmin = 0.77 
+            xmax = 0.9 
+            text = "a˥" 
+        intervals [9]:
+            xmin = 0.9 
+            xmax = 0.96 
+            text = "ow˥" 
+        intervals [10]:
+            xmin = 0.96 
+            xmax = 1.06 
+            text = "kʰ" 
+        intervals [11]:
+            xmin = 1.06 
+            xmax = 1.36 
+            text = "ej˥˩" 
+        intervals [12]:
+            xmin = 1.36 
+            xmax = 1.565333 
+            text = "" 

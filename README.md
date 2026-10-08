@@ -1,6 +1,8 @@
 # Affaiblissement phonétique des occlusives en mandarin
 
-Ce dépôt contient les scripts, les données intermédiaires, les résultats et les ressources numériques utilisés dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), à l’Université d’Orléans.
+Ce dépôt contient les scripts, les données, les fichiers d’annotation et les résultats utilisés pour la constitution, le traitement et l’analyse d’un corpus de parole en mandarin dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), à l’Université d’Orléans.
+
+Le dépôt rassemble notamment les fichiers de transcription et d’alignement du corpus, les données utilisées pour les analyses, les scripts de traitement et d’analyse, ainsi que les principaux résultats, sous forme de visualisations et de résultats des modèles linéaires à effets mixtes (LMM).
 
 Le mémoire porte sur la variation phonétique des occlusives du mandarin standard dans la parole continue, avec une attention particulière portée aux manifestations acoustiques de l’affaiblissement phonétique.
 

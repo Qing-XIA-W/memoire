@@ -11,6 +11,11 @@ memoire/
 │
 ├── README.md
 │
+├── corpus/
+│   ├── transcriptions/
+│   ├── alignments_mfa/
+│   └── alignments_corrected/
+│
 ├── data/
 │   ├── Souscorpus.csv
 │   ├── corpus_consonants_extraction.csv
@@ -27,7 +32,7 @@ memoire/
 │   ├── génération_grille_régression_par_consonne.py
 │   └── traitement_batch_textgrid.praat
 │
-├── results/
+└── results/
     ├── LMM/
     │   ├── Resume_Modeles_LMM.txt
     │   └── Resume_Modeles_socio_LMM.txt
@@ -86,7 +91,35 @@ Il contient uniquement les trois premières informations nécessaires à cette o
 
 Il s’agit donc d’un fichier intermédiaire destiné principalement à la préparation des données pour les analyses.
 
-## 3. Scripts
+## 3. Corpus et fichiers d'alignement
+
+Le dossier `corpus/` contient les fichiers textuels et les fichiers d'annotation issus des différentes étapes de préparation et d'alignement du corpus de parole. Les fichiers audio originaux ne sont pas inclus dans ce dépôt.
+
+Les trois sous-dossiers contiennent les fichiers correspondant à **14 locuteurs**, pour un total de **3 685 fichiers par étape de traitement**.
+
+### `corpus/transcriptions/`
+
+Ce dossier contient les transcriptions au format .txt utilisées comme entrée pour l'alignement automatique avec Montreal Forced Aligner (MFA).
+
+Afin de limiter les problèmes de reconnaissance des unités correspondant aux caractères chinois par MFA et, notamment, les cas de mots hors vocabulaire (OOV, out-of-vocabulary), des espaces ont été ajoutés entre les caractères chinois dans les transcriptions. Cette segmentation facilite ainsi l'identification des unités par le système d'alignement.
+
+Les fichiers sont organisés par locuteur et correspondent aux fichiers audio du corpus original.
+
+### `corpus/alignments_mfa/`
+
+Ce dossier contient les fichiers **TextGrid produits automatiquement par MFA** à partir des transcriptions et des fichiers audio du corpus original.
+
+Les fichiers sont organisés par locuteur et correspondent aux résultats de l'étape d'alignement automatique.
+
+### `corpus/alignments_corrected/`
+
+Ce dossier contient les fichiers **TextGrid issus de la vérification et de la correction manuelles des alignements produits par MFA**.
+
+Les corrections portent notamment sur les frontières segmentales et les annotations phonétiques, conformément aux conventions d'annotation utilisées dans le cadre du mémoire.
+
+Les fichiers de ce dossier constituent la version corrigée des alignements utilisée pour les étapes ultérieures de traitement et d'analyse acoustique.
+
+## 4. Scripts
 
 Le dossier `scripts/` contient les scripts utilisés pour les différentes étapes du traitement et de l’analyse des données.
 
@@ -135,7 +168,7 @@ Ces scripts permettent de produire différentes représentations descriptives et
 
 Les figures présentes dans `results/figures/` correspondent aux figures retenues pour la présentation des résultats dans le mémoire. Toutes les sorties graphiques produites au cours de l’exploration des données ne sont pas nécessairement incluses dans ce dossier.
 
-## 4. Résultats
+## 5. Résultats
 
 Le dossier `results/` contient les principaux résultats utilisés dans le mémoire.
 
@@ -154,7 +187,7 @@ Ce dossier contient les résumés des modèles linéaires à effets mixtes :
 
 Les scripts correspondants sont disponibles dans le dossier `scripts/`, ce qui permet de relier les résultats présentés aux procédures statistiques utilisées.
 
-## 5. Chaîne générale de traitement
+## 6. Chaîne générale de traitement
 
 La constitution des données analysées et la réalisation des analyses peuvent être résumées comme suit :
 
@@ -183,15 +216,21 @@ corpus_consonants_extraction.csv
    results/figures      results/LMM    
 ```
 
-## 6. Annotation et vérification manuelle
+## 7. Annotation et vérification manuelle
 
-Les données ont été alignées automatiquement puis vérifiées et corrigées manuellement lorsque cela était nécessaire.
+Les transcriptions ont d'abord été utilisées pour réaliser un alignement automatique avec Montreal Forced Aligner (MFA). Les fichiers d'alignement ainsi obtenus ont ensuite fait l'objet d'une vérification et d'une correction manuelles.
+
+Les différentes étapes sont conservées dans le dossier corpus/ :
+
+1. transcriptions/ : transcriptions utilisées comme entrée pour l'alignement automatique ;
+2. alignments_mfa/ : fichiers TextGrid issus de l'alignement automatique par MFA ;
+3. alignments_corrected/ : fichiers TextGrid après vérification et correction manuelles.
 
 Une attention particulière a été portée à l’identification des frontières segmentales et à la mesure du VOT. Les valeurs de VOT du sous-corpus final ont notamment été vérifiées manuellement afin de contrôler l’identification du relâchement de l’occlusive et du début du voisement.
 
 Les conventions d’annotation et de correction utilisées dans le cadre du mémoire sont décrites dans le protocole d’annotation associé au travail.
 
-## 7. Outils logiciels et bibliothèques Python utilisés pour le traitement et l'analyse des données
+## 8. Outils logiciels et bibliothèques Python utilisés pour le traitement et l'analyse des données
 
 Les analyses ont été réalisées à l’aide de plusieurs logiciels et bibliothèques, notamment :
 
@@ -211,21 +250,24 @@ Les analyses ont été réalisées à l’aide de plusieurs logiciels et bibliot
 | **Seaborn** | 0.13.2 | Visualisation statistique de haut niveau (boxplots, barplots, régressions multi-groupes) |
 | **TextGrid** | 1.6.1 | Manipulation simple et parsing orienté objet des fichiers TextGrid de Praat (lecture/écriture des tiers et des intervalles) |
 
-## 8. Reproductibilité
+## 9. Reproductibilité
 
 Ce dépôt vise à documenter les principales étapes du traitement des données et des analyses réalisées dans le cadre du mémoire.
 
-Les fichiers de données et les scripts permettent notamment de distinguer :
+Les fichiers disponibles permettent notamment de distinguer :
 
-1. les données issues de l’extraction automatique ;
-2. le sous-corpus sélectionné pour les analyses ;
-3. les mesures de VOT après vérification manuelle ;
-4. les procédures statistiques utilisées ;
-5. les scripts de production des figures.
+1. les transcriptions utilisées pour l'alignement automatique ;
+2. les alignements phonétiques produits automatiquement par MFA ;
+3. les alignements vérifiés et corrigés manuellement ;
+4. les données issues de l'extraction automatique ;
+5. le sous-corpus sélectionné pour les analyses ;
+6. les mesures de VOT après vérification manuelle ;
+7. les procédures statistiques utilisées ;
+8. les scripts de production des figures.
 
-Les fichiers audio originaux et l’ensemble des fichiers TextGrid ne sont pas inclus dans ce dépôt. Les données originales proviennent de Lingua Libre.
+Les fichiers audio originaux ne sont pas inclus dans ce dépôt. Ils proviennent de Lingua Libre et peuvent être soumis à des conditions de diffusion susceptibles d'évoluer, notamment en cas de retrait des enregistrements par leurs contributeurs. Les fichiers audio ne sont donc pas redistribués dans ce dépôt. Les fichiers de transcription et les annotations TextGrid correspondant aux différentes étapes de traitement sont toutefois fournis dans le dossier `corpus/`, sous réserve des conditions de diffusion applicables aux données.
 
-## 9. Mémoire
+## 10. Mémoire
 
 Ce dépôt est associé au mémoire de Master 2 :
 
@@ -234,6 +276,6 @@ Ce dépôt est associé au mémoire de Master 2 :
 Université d’Orléans
 Master Sciences du langage — Parcours Analyse et Traitements Linguistiques (ATL)
 
-## 10. Note sur le développement du code
+## 11. Note sur le développement du code
 
 Ce projet a bénéficié de l’assistance de l’outil d’IA Gemini pour l’optimisation de certains scripts de traitement acoustique et d’analyse statistique. La logique algorithmique, le contrôle de la qualité des données et la validation des modèles ont été assurés par l’auteur.

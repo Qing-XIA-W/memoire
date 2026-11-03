@@ -197,19 +197,19 @@ La constitution des données analysées et la réalisation des analyses peuvent 
 Corpus et métadonnées Lingua Libre
                 ↓
 Transcriptions utilisées par MFA
-    `corpus/transcriptions/`
+    corpus/transcriptions/
                 ↓
 Alignement automatique par MFA (TextGrid)
-    `corpus/alignments_mfa/`
+    corpus/alignments_mfa/
                 ↓
 Vérification et correction manuelles
-    `corpus/alignments_corrected/`
+    corpus/alignments_corrected/
                 ↓
 Extraction automatique des paramètres acoustiques
-    `corpus_consonants_extraction.csv` (10 847 occurrences)
+    corpus_consonants_extraction.csv (10 847 occurrences)
                 ↓
 Sélection et nettoyage
-    `Souscorpus.csv` (1 613 occurrences)
+    Souscorpus.csv (1 613 occurrences)
                 ↓
 Vérification manuelle du VOT
                 ↓
@@ -219,7 +219,7 @@ Analyses statistiques
       ↓                   ↓
     Figures              LMM
       ↓                   ↓
- `results/figures`      `results/LMM`    
+ results/figures      results/LMM   
 ```
 
 ## 7. Annotation et vérification manuelle

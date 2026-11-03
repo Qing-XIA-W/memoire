@@ -1,6 +1,6 @@
 # Affaiblissement phonétique des occlusives en mandarin
 
-Ce dépôt contient les scripts, les données, les fichiers d’annotation et les résultats utilisés pour la constitution, le traitement et l’analyse d’un corpus de parole en mandarin dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), à l’Université d’Orléans.
+Ce dépôt contient les scripts, les données, les fichiers d’annotation et les résultats utilisés dans le cadre du mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL) à l’Université d’Orléans, dirigé par Mathilde Hutin (CNRS, ATILF) dans le cadre du projet CoCLiCo. 
 
 Le dépôt rassemble notamment les fichiers de transcription et d’alignement du corpus, les données utilisées pour les analyses, les scripts de traitement et d’analyse, ainsi que les principaux résultats, sous forme de visualisations et de résultats des modèles linéaires à effets mixtes (LMM).
 
@@ -68,7 +68,7 @@ Ce fichier constitue donc la principale table de données utilisée pour les ana
 
 ### `Metadata.xlsx`
 
-Ce fichier de métadonnées a été constitué manuellement à partir des informations disponibles pour les locuteurs.
+Ce fichier de métadonnées a été constitué manuellement à partir des informations disponibles sur les pages de profil des locuteurs sur Lingua Libre (consultées le 10 mars 2026).
 
 Il contient notamment les variables suivantes :
 
@@ -79,7 +79,7 @@ Il contient notamment les variables suivantes :
 * `Langue maternelle`
 * `Autre Langue (Niveau)`
 
-Ces informations permettent de documenter les caractéristiques générales des locuteurs du corpus et d’examiner certaines dimensions sociophonétiques.
+Ces informations permettent de documenter les caractéristiques générales des locuteurs du corpus et d’examiner certaines dimensions sociophonétiques. Elles correspondent aux informations disponibles au moment de la consultation et peuvent évoluer par la suite.
 
 ### `metapp.xlsx`
 
@@ -196,26 +196,30 @@ La constitution des données analysées et la réalisation des analyses peuvent 
 ```text
 Corpus et métadonnées Lingua Libre
                 ↓
-       Extraction automatique
+Transcriptions utilisées par MFA
+    `corpus/transcriptions/`
                 ↓
-corpus_consonants_extraction.csv
-       (10 847 occurrences)
+Alignement automatique par MFA (TextGrid)
+    `corpus/alignments_mfa/`
                 ↓
-      Sélection et nettoyage
+Vérification et correction manuelles
+    `corpus/alignments_corrected/`
                 ↓
-         Souscorpus.csv
-       (1 613 occurrences)
+Extraction automatique des paramètres acoustiques
+    `corpus_consonants_extraction.csv` (10 847 occurrences)
                 ↓
-       Vérification manuelle
-             du VOT
+Sélection et nettoyage
+    `Souscorpus.csv` (1 613 occurrences)
                 ↓
-     Analyses statistiques
+Vérification manuelle du VOT
+                ↓
+Analyses statistiques
                 ↓
       ┌─────────┴─────────┐
       ↓                   ↓
     Figures              LMM
       ↓                   ↓
-   results/figures      results/LMM    
+ `results/figures`      `results/LMM`    
 ```
 
 ## 7. Annotation et vérification manuelle
@@ -224,9 +228,9 @@ Les transcriptions ont d'abord été utilisées pour réaliser un alignement aut
 
 Les différentes étapes sont conservées dans le dossier corpus/ :
 
-1. transcriptions/ : transcriptions utilisées comme entrée pour l'alignement automatique ;
-2. alignments_mfa/ : fichiers TextGrid issus de l'alignement automatique par MFA ;
-3. alignments_corrected/ : fichiers TextGrid après vérification et correction manuelles.
+1. `transcriptions/` : transcriptions utilisées comme entrée pour l'alignement automatique ;
+2. `alignments_mfa/` : fichiers TextGrid issus de l'alignement automatique par MFA ;
+3. `alignments_corrected/` : fichiers TextGrid après vérification et correction manuelles.
 
 Une attention particulière a été portée à l’identification des frontières segmentales et à la mesure du VOT. Les valeurs de VOT du sous-corpus final ont notamment été vérifiées manuellement afin de contrôler l’identification du relâchement de l’occlusive et du début du voisement.
 
@@ -259,25 +263,25 @@ Ce dépôt vise à documenter les principales étapes du traitement des données
 Les fichiers disponibles permettent notamment de distinguer :
 
 1. les transcriptions utilisées pour l'alignement automatique ;
-2. les alignements phonétiques produits automatiquement par MFA ;
+2. les alignements produits automatiquement par MFA ;
 3. les alignements vérifiés et corrigés manuellement ;
 4. les données issues de l'extraction automatique ;
 5. le sous-corpus sélectionné pour les analyses ;
 6. les mesures de VOT après vérification manuelle ;
 7. les procédures statistiques utilisées ;
-8. les scripts de production des figures.
+8. les scripts de production des figures ;
+9. les résultats des modèles statistiques et les principales visualisations.
 
-Les fichiers audio originaux ne sont pas inclus dans ce dépôt. Ils proviennent de Lingua Libre et peuvent être soumis à des conditions de diffusion susceptibles d'évoluer, notamment en cas de retrait des enregistrements par leurs contributeurs. Les fichiers audio ne sont donc pas redistribués dans ce dépôt. Les fichiers de transcription et les annotations TextGrid correspondant aux différentes étapes de traitement sont toutefois fournis dans le dossier `corpus/`, sous réserve des conditions de diffusion applicables aux données.
+Les fichiers audio originaux ne sont pas inclus dans ce dépôt. Ils proviennent de Lingua Libre et peuvent être consultés et téléchargés depuis les pages correspondantes sur le site. Les noms des fichiers audio sont indiqués dans `corpus_consonants_extraction.csv`. Les fichiers TextGrid portent les mêmes noms que les fichiers audio correspondants, ce qui permet de les mettre en relation.
 
 ## 10. Mémoire
 
-Ce dépôt est associé au mémoire de Master 2 :
+Ce dépôt accompagne le mémoire de Master 2 en Sciences du langage, parcours Analyse et Traitements Linguistiques (ATL), intitulé :
 
-**Affaiblissement phonétique des occlusives en mandarin dans la parole continue — Analyse acoustique et traitement d’un corpus oral participatif**
+Affaiblissement phonétique des occlusives en mandarin dans la parole continue — Analyse acoustique et traitement d’un corpus oral participatif
 
-Université d’Orléans
-Master Sciences du langage — Parcours Analyse et Traitements Linguistiques (ATL)
+Le mémoire sera prochainement déposé dans l’archive ouverte HAL. La référence bibliographique complète et le lien vers le dépôt seront ajoutés à cette section après sa mise en ligne.
 
 ## 11. Note sur le développement du code
 
-Ce projet a bénéficié de l’assistance de l’outil d’IA Gemini pour l’optimisation de certains scripts de traitement acoustique et d’analyse statistique. La logique algorithmique, le contrôle de la qualité des données et la validation des modèles ont été assurés par l’auteur.
+Ce projet a bénéficié de l’assistance de l’outil d’IA Gemini pour l’optimisation de certains scripts de traitement acoustique et d’analyse statistique. La logique algorithmique, le contrôle de la qualité des données et la validation des modèles ont été assurés par l’autrice.
